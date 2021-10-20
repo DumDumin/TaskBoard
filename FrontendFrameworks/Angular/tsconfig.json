@@ -20,9 +20,9 @@
       "es2018",
       "dom"
     ],
-    // "paths":{
-    //   "tslib": ["node_modules/tslib"]
-    // },
+    "paths":{
+      "tslib": ["node_modules/tslib"]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
