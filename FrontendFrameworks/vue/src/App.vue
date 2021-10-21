@@ -1,5 +1,5 @@
 <template>
-  <my-card></my-card>
+  <my-card v-on:count-changed="testf()"></my-card>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
 </template>
@@ -7,11 +7,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
+import { hello } from '../../../Models/src/index'
 
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods: {
+    testf: function() {
+      hello("test")
+    }
   }
 });
 </script>
