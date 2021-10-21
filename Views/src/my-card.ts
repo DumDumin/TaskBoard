@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('my-card')
 export class Card extends LitElement {
 
-  static override styles = css`
+  static styles = css`
     .host {
       color: blueviolet;
       display: block;
@@ -39,7 +39,7 @@ export class Card extends LitElement {
   @property({ type: Number })
   count = 0;
 
-  override render() {
+  render() {
     return html`
         <div class="card card-1">
           <h1>${this.sayHello(this.name)}!</h1>
