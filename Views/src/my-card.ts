@@ -1,5 +1,7 @@
+import { inject } from 'inversify-props';
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { IService } from '../../Models/src/service';
 
 @customElement('my-card')
 export class Card extends LitElement {
@@ -33,6 +35,9 @@ export class Card extends LitElement {
     }
   `;
 
+  @inject("Service")
+  service!: IService;
+
   @property()
   name = 'World222';
 
@@ -42,7 +47,7 @@ export class Card extends LitElement {
   render() {
     return html`
         <div class="card card-1">
-          <h1>${this.sayHello(this.name)}!</h1>
+          <h1>${this.sayHello(this.service.HelloText)}!</h1>
           <button @click=${this._onClick} part="button">
             Click Count: ${this.count}
           </button>

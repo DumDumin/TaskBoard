@@ -5,7 +5,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./types",
-    "rootDir": "./src",
+    // "rootDir": "./src",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -17,6 +17,6 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../../DependencyInjection/**/*.ts"],
   "exclude": []
 }
