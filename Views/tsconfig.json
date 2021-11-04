@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": ["es6", "dom", "dom.iterable"],
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./types",
@@ -17,6 +17,6 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false
   },
-  "include": ["src/**/*.ts", "../../DependencyInjection/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": []
 }

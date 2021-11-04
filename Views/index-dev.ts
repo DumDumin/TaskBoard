@@ -1,9 +1,8 @@
-import 'reflect-metadata';
-import { container } from 'inversify-props';
-import { IService } from '../Models/src/service';
+import { containerInjection} from 'dependencyinjection/wrapper'
+import { IService } from 'models/src/service';
 
 class TestService implements IService {
     HelloText: string;
 }
 
-container.addSingleton<IService>(TestService, "Service")
+containerInjection.addSingleton<IService>(TestService, "Service")

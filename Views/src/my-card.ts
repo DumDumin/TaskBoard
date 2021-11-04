@@ -1,7 +1,7 @@
-import { inject } from 'inversify-props';
+import { customInjection } from 'dependencyinjection/wrapper';
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { IService } from '../../Models/src/service';
+import { IService } from 'models/src/service';
 
 @customElement('my-card')
 export class Card extends LitElement {
@@ -35,7 +35,7 @@ export class Card extends LitElement {
     }
   `;
 
-  @inject("Service")
+  @customInjection("Service")
   service!: IService;
 
   @property()
