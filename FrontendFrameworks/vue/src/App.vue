@@ -1,5 +1,6 @@
 <template>
   <my-card v-on:count-changed="testf()"></my-card>
+  <my-element/>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
 </template>

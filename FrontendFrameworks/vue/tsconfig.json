@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -32,8 +33,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "../../Views/src/my-card.ts"  ],
+    "tests/**/*.tsx"],
   "exclude": [
     "node_modules"
   ]
