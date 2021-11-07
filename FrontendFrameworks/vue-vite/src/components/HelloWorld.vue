@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { hello } from '../../../../Models/src/index'
 defineProps<{ msg: string }>()
 
 function testf() {
-  hello("test")
+  console.log("button clicked");
 }
 
 const count = ref(0)

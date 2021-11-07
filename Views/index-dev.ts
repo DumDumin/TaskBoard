@@ -1,8 +1,10 @@
 import { containerInjection} from 'dependencyinjection/wrapper'
-import { IService } from 'models/src/service';
+import { IService, Service } from 'models/src/service';
 
-class TestService implements IService {
-    HelloText: string;
-}
+export {Button} from '@material/mwc-button'
 
-containerInjection.addSingleton<IService>(TestService, "Service")
+// class TestService implements IService {
+//     HelloText: string;
+// }
+
+containerInjection.addSingleton<IService>(Service, "Service")

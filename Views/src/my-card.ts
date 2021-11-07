@@ -1,7 +1,7 @@
 import { customInjection } from 'dependencyinjection/wrapper';
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { IService } from 'models/src/service';
+import { IService } from 'models';
 
 @customElement('my-card')
 export class Card extends LitElement {
@@ -44,16 +44,26 @@ export class Card extends LitElement {
   @property({ type: Number })
   count = 0;
 
+  @property()
+  taskId!: string;
+
   render() {
     return html`
-        <div class="card card-1">
-          <h1>${this.sayHello(this.service.HelloText)}!</h1>
-          <button @click=${this._onClick} part="button">
+        <div class="card card-1" @click=${this._onCardClicked}>
+          <h1>${this.service.GetTask(this.taskId).Summary}</h1>
+          <h3>Status: ${this.service.GetTask(this.taskId).Status}</h3>
+          <!-- <button @click=${this._onClick} part="button">
             Click Count: ${this.count}
-          </button>
+          </button> -->
+          <mwc-button color="warn" outlined label="outlined" @click=${this._onClick}> Click Count: ${this.count}</mwc-button>
           <slot></slot>
         </div>
         `;
+  }
+
+  private _onCardClicked() {
+    console.log("click")
+    this.dispatchEvent(new CustomEvent('card-clicked'));
   }
 
   private _onClick() {

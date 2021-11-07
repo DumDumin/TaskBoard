@@ -2,7 +2,7 @@
   "name": "models",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "dependencies": {
     "typescript": "^4.4.4"
   },

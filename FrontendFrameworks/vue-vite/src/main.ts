@@ -2,8 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import { containerInjection } from 'dependencyinjection/wrapper'
-import { Service, IService} from 'models/src/service'
+import { Service, IService} from 'models'
 
+// make all UI elements available
 import 'views'
 
 containerInjection.addSingleton<IService>(Service, "Service");
