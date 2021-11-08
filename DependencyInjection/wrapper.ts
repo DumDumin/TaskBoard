@@ -12,7 +12,7 @@ export function lazyInjectWrapper (serviceName: string){
     return (target: any, key: string) => {
         lazyInject(serviceName)(target, key)
         // override getter with the value it would need to request at every access
-        target[serviceName] = target[serviceName]; 
+        target[key] = target[key];
     }
 }
 
