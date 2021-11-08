@@ -1,4 +1,4 @@
-import { containerInjection} from 'dependencyinjection/wrapper'
+import { container} from 'dependencyinjection/wrapper'
 import { IService, Service } from 'models/src/service';
 
 export {Button} from '@material/mwc-button'
@@ -7,4 +7,4 @@ export {Button} from '@material/mwc-button'
 //     HelloText: string;
 // }
 
-containerInjection.addSingleton<IService>(Service, "Service")
+container.bind<IService>("Service").to(Service).inTransientScope();

@@ -1,8 +1,7 @@
-import { customInjection } from 'dependencyinjection/wrapper';
+import { lazyInjectWrapper } from 'dependencyinjection/wrapper';
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { IService } from 'models';
-
 @customElement('my-card')
 export class Card extends LitElement {
 
@@ -35,8 +34,14 @@ export class Card extends LitElement {
     }
   `;
 
-  @customInjection("Service")
-  service!: IService;
+  constructor() {
+    super()
+    // this must be done for storybook to work
+    delete this.service;
+  }
+
+  @lazyInjectWrapper("Service")
+  private service!: IService;
 
   @property()
   name = 'World222';
@@ -45,16 +50,17 @@ export class Card extends LitElement {
   count = 0;
 
   @property()
-  taskId!: string;
+  public taskId!: string;
 
   render() {
     return html`
         <div class="card card-1" @click=${this._onCardClicked}>
-          <h1>${this.service.GetTask(this.taskId).Summary}</h1>
+          <h1>${this.service.GetTask(this.taskId).Id}</h1>
+          <h2>${this.service.GetTask(this.taskId).Summary}</h2>
           <h3>Status: ${this.service.GetTask(this.taskId).Status}</h3>
-          <!-- <button @click=${this._onClick} part="button">
+          <button @click=${this._onClick} part="button">
             Click Count: ${this.count}
-          </button> -->
+          </button>
           <mwc-button color="warn" outlined label="outlined" @click=${this._onClick}> Click Count: ${this.count}</mwc-button>
           <slot></slot>
         </div>
