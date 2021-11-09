@@ -1,6 +1,6 @@
-import { html } from 'lit';
-import { Story, Meta } from '@storybook/web-components';
 import { Card } from '../my-card';
+import { Service } from 'models';
+import { Meta, Story } from '@storybook/web-components';
 
 // import {Button} from '@material/mwc-button'
 
@@ -11,19 +11,23 @@ export default {
   title: 'Example/Card',
   //👇 Our events will be mapped in Storybook UI
   argTypes: {
-    onPinTask: {},
+    onclick: { action: 'test'},
     onArchiveTask: {},
   },
 } as Meta;
 
-
 // More on component templates: https://storybook.js.org/docs/web-components/writing-stories/introduction#using-args
-const Template : Story<Card> =({taskId}) => 
-  html`<my-card taskId="${taskId}"></my-card>`;
+// import { html } from 'lit';
+// const Template : Story<Card> =({taskId}) => 
+//   html`<my-card taskId="${taskId}"></my-card>`;
 
+let card = new Card();
+card.service = new Service();
+const Template = (args: any) => Object.assign(card, args);
 
 export const Primary: Story<Card> = Template.bind({});
 Primary.args = {
   taskId: 'Button',
+  count: 10,
 };
 

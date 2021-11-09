@@ -34,14 +34,8 @@ export class Card extends LitElement {
     }
   `;
 
-  constructor() {
-    super()
-    // this must be done for storybook to work
-    delete this.service;
-  }
-
   @lazyInjectWrapper("Service")
-  private service!: IService;
+  service!: IService;
 
   @property()
   name = 'World222';
@@ -50,7 +44,7 @@ export class Card extends LitElement {
   count = 0;
 
   @property()
-  public taskId!: string;
+  taskId!: string;
 
   render() {
     return html`

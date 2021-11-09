@@ -1,4 +1,3 @@
-console.log("main")
 module.exports = {
     // "../src/**/*.stories.mdx",
   "stories": [
