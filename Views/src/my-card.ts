@@ -34,7 +34,7 @@ export class Card extends LitElement {
     }
   `;
 
-  @lazyInjectWrapper("Service")
+  // @lazyInjectWrapper("Service")
   service!: IService;
 
   @property()
